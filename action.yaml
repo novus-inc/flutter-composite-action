@@ -19,6 +19,7 @@ runs:
 
     - name: Get packages
       shell: bash
+      working-directory: client
       run: |
         flutter pub get
         flutter pub global activate dart_dot_reporter
