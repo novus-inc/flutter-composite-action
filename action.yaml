@@ -18,6 +18,7 @@ runs:
         channel: 'stable'
 
     - name: Get packages
+      shell: bash
       run: |
         flutter pub get
         flutter pub global activate dart_dot_reporter
