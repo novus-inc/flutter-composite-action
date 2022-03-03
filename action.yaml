@@ -1,0 +1,25 @@
+name: Flutter Composite Action
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    - name: Setup Java
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: ${{ env.JAVA_VERSION }}
+
+    - name: Set flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: 'stable'
+
+    - name: Get packages
+      run: |
+        flutter pub get
+        flutter pub global activate dart_dot_reporter
+        flutter pub global activate junitreport
+        pip install junit2html
