@@ -3,9 +3,6 @@ name: Flutter Composite Action
 runs:
   using: 'composite'
   steps:
-    - name: Check out repository
-      uses: actions/checkout@v3
-
     - name: Setup Java
       uses: actions/setup-java@v2
       with:
